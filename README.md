@@ -7,8 +7,8 @@ Helpers to write stateless functional components in React.
 
 ### ReactStateless.createClass(specification)
 
-`specification` can be a __[stateless functional components](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components)__
-or an __object containing pure lifecycle functions__.
+`specification` can be a __[stateless render function](https://facebook.github.io/react/blog/2015/10/07/react-v0.14.html#stateless-functional-components)__
+or an __object containing pure stateless lifecycle functions__.
 
 #### Example: component as a function
 

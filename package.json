@@ -2,8 +2,9 @@
   "name": "react-stateless",
   "version": "0.1.0",
   "description": "Helpers to write stateless components in React",
-  "main": "modules/index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "babel modules/index.js > dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,5 +23,8 @@
   "homepage": "https://github.com/troch/react-stateless#readme",
   "dependencies": {
     "react": "^0.14.0"
+  },
+  "devDependencies": {
+    "babel-core": "^5.8.25"
   }
 }

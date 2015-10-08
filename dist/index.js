@@ -21,10 +21,12 @@ function createClass(specification) {
 
     var supportedProperties = ['propTypes', 'defaultProps', 'getDefaultProps'];
 
-    var componentSpecification = supportedLifecycleMethods.filter(function (method) {
+    var componentSpecification = {};
+
+    supportedLifecycleMethods.filter(function (method) {
         return specification[method] !== undefined;
-    }).map(function (method) {
-        return function () {
+    }).forEach(function (method) {
+        componentSpecification[method] = function () {
             return specification.method.apply(specification, [this.props].concat(_slice.call(arguments)));
         };
     });

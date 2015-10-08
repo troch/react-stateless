@@ -21,10 +21,12 @@ export function createClass(specification) {
         'getDefaultProps',
     ];
 
-    let componentSpecification = supportedLifecycleMethods
+    let componentSpecification = {};
+
+    supportedLifecycleMethods
         .filter(method => specification[method] !== undefined)
-        .map(method => {
-            return function() {
+        .forEach(method => {
+            componentSpecification[method] = function() {
                 return specification.method(this.props, ...arguments);
             };
         });

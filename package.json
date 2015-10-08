@@ -1,0 +1,23 @@
+{
+  "name": "react-stateless",
+  "version": "0.1.0",
+  "description": "Helpers to write stateless components in React",
+  "main": "modules/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/troch/react-stateless.git"
+  },
+  "keywords": [
+    "react",
+    "stateless"
+  ],
+  "author": "Thomas Roch <thomas.c.roch@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/troch/react-stateless/issues"
+  },
+  "homepage": "https://github.com/troch/react-stateless#readme"
+}

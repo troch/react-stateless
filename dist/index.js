@@ -13,13 +13,17 @@ var _react = require('react');
 var _react2 = _interopRequireDefault(_react);
 
 function createClass(specification) {
+    if (!specification instanceof Function && specification.render === undefined) {
+        throw new Error('[ReactStateless.createClass(specification)] Not render function found. "specification" should be a render function or contain a render function.');
+    }
+
     var render = function render() {
         return specification instanceof Function ? specification(this.props) : specification.render(this.props);
     };
 
     var supportedLifecycleMethods = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'shouldComponentUpdate', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount'];
 
-    var supportedProperties = ['propTypes', 'defaultProps', 'getDefaultProps'];
+    var supportedProperties = ['propTypes', 'defaultProps', 'getDefaultProps', 'displayName'];
 
     var componentSpecification = {};
 
@@ -27,7 +31,7 @@ function createClass(specification) {
         return specification[method] !== undefined;
     }).forEach(function (method) {
         componentSpecification[method] = function () {
-            return specification.method.apply(specification, [this.props].concat(_slice.call(arguments)));
+            return specification[method].apply(specification, [this.props].concat(_slice.call(arguments)));
         };
     });
 

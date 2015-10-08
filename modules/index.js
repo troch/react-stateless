@@ -1,6 +1,10 @@
 import React from 'react';
 
 export function createClass(specification) {
+    if (!specification instanceof Function && specification.render === undefined) {
+        throw new Error('[ReactStateless.createClass(specification)] Not render function found. "specification" should be a render function or contain a render function.');
+    }
+
     let render = function() {
         return specification instanceof Function ? specification(this.props) : specification.render(this.props);
     }
@@ -19,6 +23,7 @@ export function createClass(specification) {
         'propTypes',
         'defaultProps',
         'getDefaultProps',
+        'displayName'
     ];
 
     let componentSpecification = {};
@@ -27,7 +32,7 @@ export function createClass(specification) {
         .filter(method => specification[method] !== undefined)
         .forEach(method => {
             componentSpecification[method] = function() {
-                return specification.method(this.props, ...arguments);
+                return specification[method](this.props, ...arguments);
             };
         });
 

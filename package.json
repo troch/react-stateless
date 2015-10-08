@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/troch/react-stateless/issues"
   },
-  "homepage": "https://github.com/troch/react-stateless#readme"
+  "homepage": "https://github.com/troch/react-stateless#readme",
+  "dependencies": {
+    "react": "^0.14.0"
+  }
 }

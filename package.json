@@ -1,6 +1,6 @@
 {
   "name": "react-stateless",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Helpers to write stateless components in React",
   "main": "dist/index.js",
   "scripts": {

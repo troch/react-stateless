@@ -20,6 +20,7 @@ function ComponentA(props) {
     return <div>{ props.name }</div>;
 }
 
+// React 0.14
 export default ComponentA
 // Or
 export default createClass(ComponentA);

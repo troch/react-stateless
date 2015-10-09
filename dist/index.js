@@ -3,7 +3,6 @@
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
-var _slice = Array.prototype.slice;
 exports.createClass = createClass;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -21,17 +20,22 @@ function createClass(specification) {
         return specification instanceof Function ? specification(this.props) : specification.render(this.props);
     };
 
+    var displayName = undefined;
+    if (specification instanceof Function) displayName = specification.name || undefined;
+    if (specification.render instanceof Function) displayName = specification.render.name || undefined;
+
     var supportedLifecycleMethods = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'shouldComponentUpdate', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount'];
 
     var supportedProperties = ['propTypes', 'defaultProps', 'getDefaultProps', 'displayName'];
 
-    var componentSpecification = {};
+    var componentSpecification = { displayName: displayName };
 
     supportedLifecycleMethods.filter(function (method) {
         return specification[method] !== undefined;
     }).forEach(function (method) {
         componentSpecification[method] = function () {
-            return specification[method].apply(specification, [this.props].concat(_slice.call(arguments)));
+            var args = [this.props].concat(arguments[0] === undefined ? [] : arguments[0]);
+            return specification[method].apply(null, args);
         };
     });
 

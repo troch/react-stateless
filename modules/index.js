@@ -9,6 +9,10 @@ export function createClass(specification) {
         return specification instanceof Function ? specification(this.props) : specification.render(this.props);
     }
 
+    let displayName;
+    if (specification instanceof Function) displayName = specification.name || undefined;
+    if (specification.render instanceof Function) displayName = specification.render.name || undefined;
+
     let supportedLifecycleMethods = [
         'componentWillMount',
         'componentDidMount',
@@ -26,13 +30,14 @@ export function createClass(specification) {
         'displayName'
     ];
 
-    let componentSpecification = {};
+    let componentSpecification = { displayName };
 
     supportedLifecycleMethods
         .filter(method => specification[method] !== undefined)
         .forEach(method => {
             componentSpecification[method] = function() {
-                return specification[method](this.props, ...arguments);
+                const args = [this.props].concat(arguments[0] === undefined ? [] : arguments[0]);
+                return specification[method].apply(null, args);
             };
         });
 

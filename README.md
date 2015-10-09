@@ -47,7 +47,7 @@ export default createClass({shouldComponentUpdate, render})
 
 - `propTypes`
 - `defaultProps`
-- `displayName`
+- `displayName` (automatically detected by if your component function or render function is named)
 
 #### Supported methods
 

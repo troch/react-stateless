@@ -52,9 +52,9 @@ export default createClass({shouldComponentUpdate, render})
 #### Supported methods
 
 - `componentWillMount(props)`
-- `componentDidMount(props)`
-- `componentWillReceiveProps(props, nextProps)`
-- `shouldComponentUpdate(props, nextProps)`
-- `componentWillUpdate(props, nextProps)`
-- `componentDidUpdate(props, prevProps)`
-- `componentWillUnmount(props)`
+- `componentDidMount(props, refs)`
+- `componentWillReceiveProps(props, nextProps, refs)`
+- `shouldComponentUpdate(props, nextProps, refs)`
+- `componentWillUpdate(props, nextProps, refs)`
+- `componentDidUpdate(props, prevProps, refs)`
+- `componentWillUnmount(props, refs)`

@@ -38,7 +38,7 @@ export function createClass(specification) {
             componentSpecification[method] = function() {
                 const args = [this.props]
                     .concat(arguments[0] === undefined ? [] : arguments[0])
-                    .concat(this.refs);
+                    .concat(this.refs || []);
                 return specification[method].apply(null, args);
             };
         });

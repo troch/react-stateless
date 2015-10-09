@@ -34,7 +34,7 @@ function createClass(specification) {
         return specification[method] !== undefined;
     }).forEach(function (method) {
         componentSpecification[method] = function () {
-            var args = [this.props].concat(arguments[0] === undefined ? [] : arguments[0]);
+            var args = [this.props].concat(arguments[0] === undefined ? [] : arguments[0]).concat(this.refs);
             return specification[method].apply(null, args);
         };
     });

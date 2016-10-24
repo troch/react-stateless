@@ -1,6 +1,6 @@
 var sinon = require('sinon');
 var assert = require('assert');
-var ReactStateless = require('../dist');
+var ReactStateless = require('../');
 var createClass = ReactStateless.createClass;
 var React = require('react');
 var ReactDOMServer = require('react-dom/server');

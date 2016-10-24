@@ -1,10 +1,10 @@
 {
   "name": "react-stateless",
   "version": "0.2.1",
-  "description": "Helpers to write stateless components in React",
-  "main": "dist/index.js",
+  "description": "Helpers for writing stateless components in React",
+  "main": "index.js",
   "scripts": {
-    "build": "babel modules/index.js > dist/index.js",
+    "build": "babel modules/index.js -o index.js",
     "test": "_mocha"
   },
   "repository": {
@@ -22,12 +22,13 @@
   },
   "homepage": "https://github.com/troch/react-stateless#readme",
   "devDependencies": {
-    "assert": "^1.3.0",
-    "babel-core": "^5.8.25",
-    "mocha": "^2.3.3",
-    "react-dom": "^15.0.0",
-    "react": "^15.0.0",
-    "sinon": "^1.17.1"
+    "assert": "^1.4.1",
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.16.0",
+    "mocha": "^3.1.2",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "sinon": "^1.17.6"
   },
   "peerDependencies": {
     "react": "~0.14.0 || ^15.0.0"
